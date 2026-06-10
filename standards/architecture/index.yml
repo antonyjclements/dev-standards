@@ -1,0 +1,7 @@
+architecture:
+  barrel-exports:
+    description: Public API exports via index.ts barrel files
+  module-structure:
+    description: Standard directory structure for feature and foundation modules
+  three-layer-architecture:
+    description: Three-layer architecture with app, features, and foundation layers and dependency rules

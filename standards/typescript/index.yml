@@ -1,0 +1,5 @@
+typescript:
+  path-aliases:
+    description: Import path conventions using path aliases for cross-module imports
+  type-collocation:
+    description: Where to place type definitions based on usage scope

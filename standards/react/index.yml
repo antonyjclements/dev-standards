@@ -1,0 +1,17 @@
+react:
+  component-naming:
+    description: Naming conventions for React components including SliceRenderer suffix
+  compound-components:
+    description: Group related components as compound components with object exports
+  function-components:
+    description: Use named function exports for React components
+  hook-di-resolution:
+    description: DI resolution in hooks using DependencyInjection.createInstance() for API access
+  hook-file-location:
+    description: All custom hooks must be in hooks/ subdirectory within their module
+  hook-naming:
+    description: Hook naming convention with use prefix and PascalCase
+  hook-return-patterns:
+    description: Consistent return patterns for data-fetching and utility hooks
+  props-types:
+    description: Inline vs separate prop types based on component complexity

@@ -1,0 +1,9 @@
+cli:
+  command-structure:
+    description: Subcommand-per-file pattern with a thin dispatching entry point
+  argument-parsing:
+    description: Parse argv then validate with a Zod schema; commands receive typed input
+  output-and-exit-codes:
+    description: stdout for data, stderr for logs, meaningful exit codes, --json and --quiet
+  project-structure:
+    description: Thin bin/ entry with testable logic in lib/ and one file per command

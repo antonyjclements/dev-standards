@@ -1,0 +1,9 @@
+lambda-api:
+  handler-structure:
+    description: Thin Lambda handlers that validate, delegate to services, and shape responses
+  request-validation:
+    description: Validate all boundary input with Zod schemas and infer types from them
+  responses:
+    description: Consistent response helpers and a single error-to-status mapping
+  project-structure:
+    description: handlers/services/adapters/schemas layout with dependency rules

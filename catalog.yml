@@ -1,0 +1,18 @@
+# Available standards packs. Each pack installs into docs/standards/<pack>/
+# and registers its standards in docs/standards/index.yml.
+packs:
+  react:
+    summary: React component, hook, and props conventions
+    status: stable
+  typescript:
+    summary: Path aliases and type collocation
+    status: stable
+  architecture:
+    summary: Three-layer architecture, module structure, barrel exports
+    status: stable
+  lambda-api:
+    summary: TypeScript AWS Lambda HTTP API conventions
+    status: starter
+  cli:
+    summary: Node/TypeScript CLI conventions
+    status: starter
