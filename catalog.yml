@@ -10,6 +10,15 @@ packs:
   architecture:
     summary: Three-layer architecture, module structure, barrel exports
     status: stable
+  patterns:
+    summary: Registry / dependency-injection patterns (factories, symbol keys, registration)
+    status: stable
+  routing:
+    summary: Page naming, page structure, route organization and parameters
+    status: stable
+  styling:
+    summary: Tailwind brand colors, dark mode, responsive design, useCss hook
+    status: stable
   lambda-api:
     summary: TypeScript AWS Lambda HTTP API conventions
     status: starter

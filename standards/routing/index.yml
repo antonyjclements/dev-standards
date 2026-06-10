@@ -1,0 +1,9 @@
+routing:
+  page-naming:
+    description: All page components use Page suffix in their name
+  page-structure:
+    description: Page component structure with usePage, loading state, Hero, BodyRenderer, Footer
+  route-organization:
+    description: Centralized route definitions in router.tsx with kebab-case page folders
+  route-parameters:
+    description: Validate route parameters and handle missing parameters with error states

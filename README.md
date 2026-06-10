@@ -29,6 +29,9 @@ Options: `--repo PATH` (target another repo), `--ref BRANCH`, `--force` (overwri
 | `react` | Function components, hook naming/location/returns, props, compound components | stable |
 | `typescript` | Path aliases, type collocation | stable |
 | `architecture` | Three-layer architecture, module structure, barrel exports | stable |
+| `patterns` | Registry / DI patterns: factories, symbol keys, centralized registration | stable |
+| `routing` | Page naming and structure, route organization, route parameters | stable |
+| `styling` | Tailwind brand colors, dark mode, responsive design, `useCss` hook | stable |
 | `lambda-api` | Thin handlers, Zod request validation, response/error shape, project structure | starter |
 | `cli` | Subcommand structure, argv parsing, stdout/stderr & exit codes, project structure | starter |
 

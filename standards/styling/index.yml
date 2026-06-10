@@ -1,0 +1,9 @@
+styling:
+  brand-colors:
+    description: Use Tailwind config aliases for brand colors (primary, secondary, accent)
+  dark-mode:
+    description: "All color classes must include dark: variants for dark mode support"
+  responsive-design:
+    description: Mobile-first responsive design with Tailwind standard breakpoints
+  usecss-hook:
+    description: Use useCss() hook for dynamic theme-aware colors
