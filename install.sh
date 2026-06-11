@@ -53,7 +53,7 @@ done
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" 2>/dev/null && pwd || true)"
 tmp=""
-cleanup() { [ -n "$tmp" ] && rm -rf "$tmp"; }
+cleanup() { if [ -n "$tmp" ]; then rm -rf "$tmp"; fi; return 0; }
 trap cleanup EXIT
 
 resolve_source() {
