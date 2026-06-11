@@ -4,7 +4,7 @@ For new engineers, human and agent. This is what we build with and how we work. 
 
 ## TL;DR
 
-TypeScript everywhere. React + Vite on the front end, AWS Lambda for APIs, small Node CLIs for tooling. Zod validates every boundary. Vitest + Testing Library for tests, ESLint (flat config) for lint, `tsc` for types. Git for everything.
+TypeScript everywhere. React + Vite on the front end, React Native + Expo for mobile, AWS Lambda for APIs, small Node CLIs for tooling. Zod validates every boundary. Vitest + Testing Library for tests, ESLint (flat config) for lint, `tsc` for types. Git for everything.
 
 ## Languages & runtime
 
@@ -30,9 +30,16 @@ Standard scripts in every repo: `dev`, `build` (`tsc -b && vite build`), `lint`,
 - **React 19** with named **function components** (no default exports).
 - **React Router 7** for routing; pages use a `Page` suffix and a consistent structure.
 - **Tailwind CSS 4** (`@tailwindcss/vite`) for styling; mobile-first, dark-mode aware.
+- **React Query** for all async data fetching and server state.
 - Custom **hooks** live in a `hooks/` dir, `use`-prefixed, with consistent return shapes.
 
-→ Standards: [`react`](standards/react), [`typescript`](standards/typescript), [`architecture`](standards/architecture)
+→ Standards: [`react`](standards/react), [`typescript`](standards/typescript), [`routing`](standards/routing), [`styling`](standards/styling)
+
+## Mobile
+
+- **React Native** for cross-platform mobile apps (iOS and Android).
+- **Expo** is the preferred framework — use Expo SDK, Expo Router, and EAS Build.
+- Share business logic with the web app where possible; keep platform-specific code behind named wrappers.
 
 ## Back end (APIs)
 
@@ -54,16 +61,16 @@ Standard scripts in every repo: `dev`, `build` (`tsc -b && vite build`), `lint`,
 A **three-layer architecture** across front end and back end:
 
 ```
-foundation → features → app          (stability: most → least stable)
+Common → Features → App          (stability: most → least stable)
 ```
 
-- **foundation** — reusable infrastructure, no business logic.
-- **features** — business domains; no feature imports another feature.
-- **app** — routing, composition, wiring.
+- **Common** — reusable UI, hooks, utilities, and types; no business logic.
+- **Features** — business domains; no feature imports another feature.
+- **App** — routing, composition, wiring.
 
-Cross-module imports use **path aliases** (`@features/`, `@foundation/`); public surfaces are exposed through **barrel exports** (`index.ts`).
+Cross-module imports use **path aliases** (`@features/`, `@common/`); public surfaces are exposed through **barrel exports** (`index.ts`).
 
-→ Standard: [`architecture`](standards/architecture)
+→ Standard: [`react`](standards/react)
 
 ## Quality gates (before a PR)
 
@@ -85,5 +92,5 @@ npm test           # Vitest
 Pull the standards that apply to what you're building:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/antonyjclements/dev-standards/main/install.sh) add react typescript architecture
+bash <(curl -fsSL https://raw.githubusercontent.com/antonyjclements/dev-standards/main/install.sh) add react typescript testing
 ```

@@ -29,8 +29,6 @@ Options: `--repo PATH` (target another repo), `--ref BRANCH`, `--force` (overwri
 | `react` | Three-layer architecture (App → Features → Common), state and useEffect discipline, React Query, hooks vs components, compound components, props naming, co-located tests | stable |
 | `typescript` | Types over interfaces, named exports, no `any`, Result types, discriminated unions, factories, Zod boundaries, no derived state | stable |
 | `testing` | Test naming, AAA structure, determinism, one-test-one-thing, what not to test, object mothers | stable |
-| `architecture` | Three-layer architecture, module structure, barrel exports | stable |
-| `patterns` | Registry / DI patterns: factories, symbol keys, centralized registration | stable |
 | `routing` | Page naming and structure, route organization, route parameters | stable |
 | `styling` | Tailwind brand colors, dark mode, responsive design, `useCss` hook | stable |
 | `lambda-api` | Thin handlers, Zod request validation, response/error shape, project structure | starter |

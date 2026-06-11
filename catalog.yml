@@ -10,12 +10,6 @@ packs:
   testing:
     summary: Test naming, AAA, determinism, scope, and object mothers
     status: stable
-  architecture:
-    summary: Three-layer architecture, module structure, barrel exports
-    status: stable
-  patterns:
-    summary: Registry / dependency-injection patterns (factories, symbol keys, registration)
-    status: stable
   routing:
     summary: Page naming, page structure, route organization and parameters
     status: stable

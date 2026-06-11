@@ -1,9 +1,0 @@
-patterns:
-  centralized-registration:
-    description: All registry registrations happen in app/register-services.ts
-  registry-factory:
-    description: Use factory functions in registries to enable lazy loading and avoid circular dependencies
-  registry-naming:
-    description: Naming conventions for registry types and DI symbols
-  symbol-di-keys:
-    description: Use Symbol() for dependency injection keys to prevent collisions
