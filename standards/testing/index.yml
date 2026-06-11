@@ -1,0 +1,15 @@
+testing:
+  test-naming:
+    description: Present tense declarative names - no "should" - follow [unit] [does what] [under condition]
+  deterministic-tests:
+    description: Mock dates with vi.setSystemTime() - mock network calls - no random data in assertions
+  what-not-to-test:
+    description: Test outcomes not implementation details - no testing third-party libraries or type correctness
+  one-test-one-thing:
+    description: Each test verifies exactly one behaviour - failures pinpoint single specific problem
+  arrange-act-assert:
+    description: AAA pattern with blank line separation - Arrange, Act, Assert structure
+  self-contained-tests:
+    description: No shared mutable state between tests - each test creates own prerequisites
+  object-mothers:
+    description: Factory pattern for test data - <Domain>Mother in test-support/mothers/

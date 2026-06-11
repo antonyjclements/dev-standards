@@ -1,5 +1,19 @@
 typescript:
-  path-aliases:
-    description: Import path conventions using path aliases for cross-module imports
-  type-collocation:
-    description: Where to place type definitions based on usage scope
+  types-over-interfaces:
+    description: Always use type, never interface - more powerful and prevents declaration merging bugs
+  named-exports:
+    description: No default exports - named exports for consistent naming and reliable refactoring
+  function-declarations:
+    description: Top-level functions use function declarations, not arrow functions - better stack traces
+  no-any-use-unknown:
+    description: No any anywhere - use unknown with type guards for indeterminate types
+  result-types:
+    description: Result<T, E> for operations that can fail - make error handling explicit and required
+  discriminated-unions:
+    description: Model states with discriminated unions - make illegal states unrepresentable
+  factories:
+    description: Factory functions for complex construction - centralize logic and return Result if construction can fail
+  zod-validation:
+    description: Zod at runtime boundaries - derive types from schemas with z.infer
+  no-derived-state:
+    description: No derived state in types or runtime state - compute at point of use

@@ -2,10 +2,13 @@
 # and registers its standards in docs/standards/index.yml.
 packs:
   react:
-    summary: React component, hook, and props conventions
+    summary: Architecture, state, hooks, async, and component conventions for React apps
     status: stable
   typescript:
-    summary: Path aliases and type collocation
+    summary: Type-level conventions - types over interfaces, Result types, Zod boundaries, no any
+    status: stable
+  testing:
+    summary: Test naming, AAA, determinism, scope, and object mothers
     status: stable
   architecture:
     summary: Three-layer architecture, module structure, barrel exports

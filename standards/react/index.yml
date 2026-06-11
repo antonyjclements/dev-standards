@@ -1,17 +1,39 @@
 react:
-  component-naming:
-    description: Naming conventions for React components including SliceRenderer suffix
+  three-layer-architecture:
+    description: App → Features → Common with strict one-directional dependencies
+  feature-module-structure:
+    description: Features organized by domain with components/, hooks/, types/, schemas/
+  cross-feature-dependency-resolution:
+    description: No cross-feature imports - resolve at app layer via composition, render props, or common
+  common-design-principles:
+    description: Common layer is stable and abstract - no business logic, event delegation pattern
+  file-naming-conventions:
+    description: Name files by purpose not category - no utils.ts, helpers.ts, constants.ts
+  open-closed-principle:
+    description: Extend with new code not modifications - discriminated unions and factory functions
+  stable-dependencies-principle:
+    description: Dependencies flow toward stability - volatile depends on stable
+  stable-abstractions-principle:
+    description: Stable modules must be abstract - use generics and generic props
+  common-closure-principle:
+    description: Code that changes together lives together - group by reason to change
+  illegal-states-unrepresentable:
+    description: Use type system to prevent invalid states - discriminated unions and branded types
+  functional-patterns:
+    description: Pure functions, immutability, Result types for domain errors
+  business-logic-in-hooks:
+    description: Hooks own business logic, components own display logic - clear separation
+  react-query:
+    description: Use React Query for all async operations - no useEffect + useState for data fetching
+  minimal-state:
+    description: No derived state in useState - compute values inline at point of use
+  local-state:
+    description: State lives at lowest component that needs it - lift only when sharing required
+  use-effect-guidelines:
+    description: useEffect only for external system synchronization - not for data fetching or derived state
   compound-components:
-    description: Group related components as compound components with object exports
-  function-components:
-    description: Use named function exports for React components
-  hook-di-resolution:
-    description: DI resolution in hooks using DependencyInjection.createInstance() for API access
-  hook-file-location:
-    description: All custom hooks must be in hooks/ subdirectory within their module
-  hook-naming:
-    description: Hook naming convention with use prefix and PascalCase
-  hook-return-patterns:
-    description: Consistent return patterns for data-fetching and utility hooks
-  props-types:
-    description: Inline vs separate prop types based on component complexity
+    description: Composition over prop explosion - namespace pattern for structural variation
+  props-naming:
+    description: "Boolean props use is*, event handlers use on*, render props use render*, refs use *Ref"
+  co-located-tests:
+    description: Test files next to source files - test behavior from user perspective with RTL

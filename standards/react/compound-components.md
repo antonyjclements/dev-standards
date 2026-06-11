@@ -1,59 +1,48 @@
-# Compound Component Pattern
+# Compound Components
 
-Group related components that work together as compound components.
+When a component's structure varies, use composition with a namespace pattern — not an ever-growing list of props.
 
 ## Pattern
 
-```typescript
-// Individual component files
-// ContentRoot.tsx
-export function ContentRoot({children}: ContentRootProps) {
-    return <div className="mx-auto max-w-7xl">{children}</div>
-}
-
-// ContentTitle.tsx
-export function ContentTitle({title, subtitle}: ContentTitleProps) {
-    return <div><h1>{title}</h1>{subtitle && <p>{subtitle}</p>}</div>
-}
-
-// index.ts - Compound object export
-export const Content = {
-    Root: ContentRoot,
-    Title: ContentTitle,
-    Body: ContentBody,
-    Image: ContentImage,
-}
+```tsx
+// ✅ Structure is expressed in JSX, not configured through props
+<Card>
+  <Card.Header action={<IconButton icon="close" onClick={onClose} />}>
+    Invoice #1042
+  </Card.Header>
+  <Card.Body>
+    <InvoiceLines lines={invoice.lines} />
+  </Card.Body>
+  <Card.Footer>
+    <Button onClick={pay}>Pay now</Button>
+  </Card.Footer>
+</Card>
 ```
 
-## When to Use
+```tsx
+// Implementation: named parts attached to the root
+function CardRoot({ children }: { children: ReactNode }) { ... }
+function Header({ children, action }: HeaderProps) { ... }
+function Body({ children }: { children: ReactNode }) { ... }
+function Footer({ children }: { children: ReactNode }) { ... }
 
-Group components as compound when they:
-- Work together to form a cohesive UI pattern
-- Are typically used together in combination
-- Share a common domain or purpose
-
-## Usage
-
-```typescript
-import { Content } from "@features/slice/content/components/content"
-
-<Content.Root>
-    <Content.Title title="Hello" subtitle="World" />
-    <Content.Body>
-        <Content.Image image={img} />
-        <Content.Text text={text} />
-    </Content.Body>
-</Content.Root>
+export const Card = Object.assign(CardRoot, { Header, Body, Footer })
 ```
 
-## Benefits
+## Why
 
-- **Clear relationships** — Grouped components show they work together
-- **Namespace organization** — Avoids naming conflicts
-- **Discoverable API** — IDE autocomplete shows all related components
+Prop explosion makes one component responsible for every variation anyone ever needed. Composition lets callers build the variation they need from named parts — open for extension, closed for modification.
 
-## Export Location
+## Rules
 
-- Individual components in separate files
-- Compound object exported from `index.ts`
-- Object name matches the domain (e.g., `Content`, `Form`)
+- **Reach for compound components when structure varies** (optional sections, reordering, custom content per slot). A fixed-shape component can keep plain props.
+- **Parts are namespaced on the root** (`Card.Header`) so the API is discoverable and imports stay single.
+- **Each part stays dumb** — shared state between parts (if any) goes through internal context, not caller wiring.
+
+## Not This
+
+```tsx
+// ❌ The prop-explosion trajectory
+<Card title="Invoice #1042" showClose onClose={onClose} footerButtonLabel="Pay now"
+      onFooterClick={pay} hideFooterDivider bodyPadding="lg" headerVariant="compact" />
+```
