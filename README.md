@@ -22,6 +22,59 @@ bash <(curl -fsSL https://raw.githubusercontent.com/antonyjclements/dev-standard
 
 Options: `--repo PATH` (target another repo), `--ref BRANCH`, `--force` (overwrite existing files), `--source DIR` (use a local checkout).
 
+## Local setup scripts
+
+Check whether a computer is ready for local development:
+
+```bash
+scripts/check-dev-setup.sh
+```
+
+Without `git`, run the checker directly with `curl`:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/antonyjclements/dev-standards/main/scripts/check-dev-setup.sh)
+```
+
+Include extra Expo / React Native checks:
+
+```bash
+scripts/check-dev-setup.sh --mobile
+```
+
+Create a new web repo with Vite, React, TypeScript, agentic-workflow, and the `react`, `typescript`, and `testing` standards:
+
+```bash
+scripts/setup-app-repo.sh web ~/Development/my-web-app
+```
+
+Or without cloning this repo first:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/antonyjclements/dev-standards/main/scripts/setup-app-repo.sh) web ~/Development/my-web-app
+```
+
+Create a new mobile repo with Expo, React Native, TypeScript, agentic-workflow, and the same standards:
+
+```bash
+scripts/setup-app-repo.sh mobile ~/Development/my-mobile-app
+```
+
+Run `scripts/setup-app-repo.sh --help` for options such as `--name`, `--no-git`, and `--force`.
+
+Newly scaffolded repos also get `.scripts/fitness-functions/`, a `check:fitness` npm script, and Husky-compatible `pre-commit` / `pre-push` hooks. The fitness suite includes checks for:
+
+- `app` may import `features` and `common`.
+- `features` may import `common`, but not `app` or other features.
+- `common` may not import `app` or `features`.
+- exported top-level functions use `export function`, not exported arrow functions.
+- banned dumping-ground filenames such as `utils.ts`, `helpers.ts`, `constants.ts`, `misc.ts`, `common.ts`, and `shared.ts`.
+- no default exports.
+- no explicit `any`.
+- `type` aliases instead of `interface`.
+- React props naming for booleans, handlers, render props, and refs.
+- test names avoid `should` and vague names such as `works`.
+
 ## Packs
 
 | Pack | What it covers | Status |
